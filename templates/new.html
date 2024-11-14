@@ -1,0 +1,31 @@
+{% extends "template.html" %}
+{% block content %}
+  <form class="formMartial" method="post" action="{{ url_for('martialCreate') }}" enctype="multipart/form-data">
+    <figure class="img thumbnail col-md-4 formularioImagem">
+      <img class="img-fluid" src="{{ url_for('image', file_name='default_image.jpg') }}">
+      <figcaption>
+        <label class="fileContainer">
+          Change Cape
+          <input type="file" name="cape_file" accept=".jpg, .jpeg">
+        </label>
+      </figcaption>
+    </figure>
+    <fieldset>
+      {{ form.csrf_token() }}
+      <div class="form-group inputBox">
+        {{ form.name.label(class="form-label") }}
+        {{ form.name(class="form-control") }}
+      </div>
+      <div class="form-group inputBox">
+        {{ form.category.label(class="form-label") }}
+        {{ form.category(class="form-control") }}
+      </div>
+      <div class="form-group inputBox">
+        {{ form.points.label(class="form-label") }}
+        {{ form.points(class="form-control") }}
+      </div>
+      {{ form.save(class="btn btn-primary btn-salvar mt-2") }}
+    </fieldset>
+  </form>
+  <button type="button" onclick="location.href='{{ url_for('index') }}'" class="btn btn-secondary mt-5">Martial Arts List</button>
+{% endblock %}

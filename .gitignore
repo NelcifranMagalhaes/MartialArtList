@@ -1,0 +1,4 @@
+__pycache__/
+uploads/*
+!uploads/default_image.jpg
+!uploads/martial-arts.ico
